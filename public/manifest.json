@@ -1,0 +1,32 @@
+{
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "fullscreen",
+    "scope": "/",
+    "start_url": "https://pensarpiaui.com/?utm_source=homescreen",
+    "name": "Clube A",
+    "short_name": "Clube A",
+    "description": "No Pensar Piauí você fica por dentro de tudo sobre Política, Comunicação, Cultura, Diversidade, Economia, Educação e muito mais.",
+    "icons": [
+        {
+            "src": "/images/favicon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicon.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicon.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
