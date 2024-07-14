@@ -1,498 +1,272 @@
-(function($) {
-    "use strict";
-
-    $('.searchbtn').on('click', function() {
-        $('.search-area').addClass('open');
-    });
-    $('.close-searchbox').on('click', function() {
-        $('.search-area').removeClass('open');
-    });
-
-    /* -------------------------------------
-           Hero Slider
-    // -------------------------------------- */
-
-    var news_slider = new Swiper(".hero-slider-one", {
-        spaceBetween: 10,
-
-    });
-    var news_thumb_slider = new Swiper(".hero-slider-two", {
-        spaceBetween: 25,
-        centeredSlides: true,
-        roundLengths: true,
-        loop: true,
-        speed: 1500,
-        loopAdditionalSlides: 30,
-        navigation: {
-            nextEl: ".hero-two-next",
-            prevEl: ".hero-two-prev"
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 10,
-
-            },
-            768: {
-                slidesPerView: 1.2
-
-            },
-            992: {
-                slidesPerView: 1.2
-
-            },
-            1200: {
-                slidesPerView: 1.1
-            },
-            1500: {
-                slidesPerView: 1.45
-            }
-        }
-    });
-    /* -------------------------------------
-           Service Slider
-     -------------------------------------- */
-    var news_thumb_slider = new Swiper(".news-img-slider-thumb", {
-        loop: true,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: true,
-        },
-        slidesPerView: 3,
-        speed: 1500,
-        freeMode: true,
-        observer: true,
-        observeParents: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-
-            },
-            768: {
-                slidesPerView: 2
-
-            },
-            1200: {
-                direction: "vertical"
-
-            }
-        }
-    });
-    var swiper2 = new Swiper(".news-img-slider", {
-        loop: true,
-        spaceBetween: 10,
-        speed: 1500,
-
-        thumbs: {
-            swiper: news_thumb_slider,
-        },
-    });
-    var news_thumb_slider = new Swiper(".feature-news-slider", {
-        loop: true,
-        spaceBetween: 30,
-        autoplay: {
-            delay: 2000,
-            disableOnInteraction: true,
-        },
-        slidesPerView: 3,
-        speed: 1500,
-        freeMode: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        navigation: {
-            nextEl: ".feature-one-next",
-            prevEl: ".feature-one-prev"
-        },
-        calculateHeight: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-
-            },
-
-            992: {
-                slidesPerView: 2
-
-            },
-            1200: {
-                slidesPerView: 2
-
-            }
-        }
-    });
-
-    var listArray = ["slide1", "slide2", "slide3"];
-    var business_slider = new Swiper('.business-slider', {
-        loop: true,
-        autoplayDisableOnInteraction: false,
-        slidesPerView: 1,
-        autoHeight: true,
-        autoplay: {
-            delay: 6000,
-        },
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        speed: 1200,
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: 'true',
-            type: 'bullets',
-            renderBullet: function(index, className) {
-                return '<span class="' + className + '">' + '<i></i>' + '<b></b>' + '</span>';
-            },
-
-        },
-
-
-    })
-
-    /* -------------------------------------
-           Top News Slider
-    // -------------------------------------- */
-    var project_slider_one = new Swiper('.top-news-slider', {
-        spaceBetween: 30,
-        slidesPerView: 1,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        effect: 'fade',
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        pagination: {
-            el: ".top-news-pagination",
-            clickable: true,
-        },
-
-    });
-
-    var slider_two = new Swiper('.latest-news-slider', {
-        spaceBetween: 20,
-        slidesPerView: 3,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        navigation: {
-            nextEl: ".latest-next",
-            prevEl: ".latest-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-
-            },
-            400: {
-                slidesPerView: 1.4
-
-            },
-            768: {
-                slidesPerView: 2
-
-            },
-            1200: {
-                slidesPerView: 2,
-                spaceBetween: 25,
-
-            },
-            1440: {
-                slidesPerView: 3,
-                spaceBetween: 25,
-
-            }
-        }
-
-    });
-    var slider_two = new Swiper('.travel-news-slider', {
-        spaceBetween: 20,
-        slidesPerView: 3,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        navigation: {
-            nextEl: ".travel-next",
-            prevEl: ".travel-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-
-            },
-            400: {
-                slidesPerView: 1.4
-
-            },
-            768: {
-                slidesPerView: 2
-
-            },
-            1200: {
-                slidesPerView: 3,
-                spaceBetween: 25,
-
-            }
-        }
-
-    });
-    var slider_two = new Swiper('.travel-news-slider-two', {
-        spaceBetween: 20,
-        slidesPerView: 3,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        navigation: {
-            nextEl: ".travel-next-two",
-            prevEl: ".travel-prev-two",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1
-
-            },
-            480: {
-                slidesPerView: 2
-
-            },
-            992: {
-                slidesPerView: 3
-
-            },
-            1200: {
-                slidesPerView: 2,
-                spaceBetween: 25,
-
-            }
-        }
-
-    });
-
-    var slider_two = new Swiper('.sports-news-slider', {
-        spaceBetween: 20,
-        slidesPerView: 1,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        pagination: {
-            el: ".sports-pagination",
-            clickable: true,
-        },
-
-    });
-    var slider_two = new Swiper('.politics-news-slider', {
-        spaceBetween: 20,
-        slidesPerView: 1,
-        autoplay: {
-            delay: 6000,
-            disableOnInteraction: true,
-        },
-        observer: true,
-        observeParents: true,
-        speed: 1500,
-        loop: true,
-        pagination: {
-            el: ".politics-pagination",
-            clickable: true,
-        },
-
-    });
-
-
-
-    /* -------------------------------------
-          Instagram Slider
-    -------------------------------------- */
-    var instagram_slider_one = new Swiper('.instagram-slider', {
-        spaceBetween: 6,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: true,
-        },
-        centeredSlide: true,
-        // observer: true,
-        // observeParents: true,
-        speed: 1500,
-        loop: true,
-        breakpoints: {
-            0: {
-                slidesPerView: 3,
-                spaceBetween: 4,
-
-            },
-            768: {
-                slidesPerView: 3,
-
-            },
-            992: {
-                slidesPerView: 4,
-
-            },
-            1200: {
-                slidesPerView: 5,
-
-            },
-
-            1500: {
-                slidesPerView: 6,
-
-            }
-        }
-    });
-    /* ----------------------------------------
-           Magnific Popup Video
-     ------------------------------------------*/
-    $('.video-play').magnificPopup({
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        preloader: true,
-    });
-
-
-    /* -------------------------------------
-          Mobile Topbar
-    -------------------------------------- */
-
-    $('.mobile-top-bar').on('click', function() {
-        $('.header-top-right').addClass('open')
-    });
-    $('.close-header-top').on('click', function() {
-        $('.header-top-right').removeClass('open')
-    });
-
-    /* -------------------------------------
-          sticky Header
-    -------------------------------------- */
-    var wind = $(window);
-    var sticky = $('.header-wrap');
-    wind.on('scroll', function() {
-        var scroll = wind.scrollTop();
-        if (scroll < 100) {
-            sticky.removeClass('sticky');
-        } else {
-            sticky.addClass('sticky');
-        }
-    });
-
-    /*---------------------------------
-        Responsive mmenu
-    ---------------------------------*/
-    $('.mobile-menu a').on('click', function() {
-        $('.main-menu-wrap').addClass('open');
-        $('.mobile-bar-wrap.style2 .mobile-menu').addClass('open');
-    });
-
-    $('.mobile_menu a').on('click', function() {
-        $(this).parent().toggleClass('open');
-        $('.main-menu-wrap').toggleClass('open');
-    });
-
-    $('.menu-close').on('click', function() {
-        $('.main-menu-wrap').removeClass('open')
-    });
-    $('.mobile-top-bar').on('click', function() {
-        $('.header-top').addClass('open')
-    });
-    $('.close-header-top button').on('click', function() {
-        $('.header-top').removeClass('open')
-    });
-    var $offcanvasNav = $('.main-menu'),
-        $offcanvasNavSubMenu = $offcanvasNav.find('.sub-menu');
-    $offcanvasNavSubMenu.parent().prepend('<span class="menu-expand"><i class="las la-angle-down"></i></span>');
-
-    $offcanvasNavSubMenu.slideUp();
-
-    $offcanvasNav.on('click', 'li a, li .menu-expand', function(e) {
-        var $this = $(this);
-        if (($this.parent().attr('class').match(/\b(has-children|sub-menu)\b/)) && ($this.attr('href') === '#' || $this.hasClass('menu-expand'))) {
-            e.preventDefault();
-            if ($this.siblings('ul:visible').length) {
-                $this.siblings('ul').slideUp('slow');
-            } else {
-                $this.closest('li').siblings('li').find('ul:visible').slideUp('slow');
-                $this.siblings('ul').slideDown('slow');
-            }
-        }
-        if ($this.is('a') || $this.is('span') || $this.attr('class').match(/\b(menu-expand)\b/)) {
-            $this.parent().toggleClass('menu-open');
-        } else if ($this.is('li') && $this.attr('class').match(/\b('has-children')\b/)) {
-            $this.toggleClass('menu-open');
-        }
-    });
-
-    /*-------------------------------------
-         Scroll to top
-    ----------------------------------*/
-
-    // Show or hide the  button
-    $(window).on('scroll', function(event) {
-        if ($(this).scrollTop() > 600) {
-            $('.back-to-top').fadeIn(200)
-        } else {
-            $('.back-to-top').fadeOut(200)
-        }
-    });
-
-
-    //Animate the scroll to top
-    $('.back-to-top').on('click', function(event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-            scrollTop: 0,
-        }, 1500);
-    });
-
-
-})(jQuery);
-
-
-// function to set a given theme/color-scheme
-// function setTheme(themeName) {
-//     localStorage.setItem('zapa_theme', themeName);
-//     document.documentElement.className = themeName;
-// }
-
-// function to toggle between light and dark theme
-// function toggleTheme() {
-//     if (localStorage.getItem('zapa_theme') === 'theme-dark') {
-//         setTheme('theme-light');
-//     } else {
-//         setTheme('theme-dark');
-//     }
-// }
-//
-// // Immediately invoked function to set the theme on initial load
-// (function () {
-//     if (localStorage.getItem('zapa_theme') === 'theme-dark') {
-//         setTheme('theme-dark');
-//         document.getElementById('slider').checked = false;
-//     } else {
-//         setTheme('theme-light');
-//         document.getElementById('slider').checked = true;
-//     }
-// })();
+jQuery(function ($) {
+    'use strict';
+
+	// Header Sticky
+	$(window).on('scroll',function() {
+		if ($(this).scrollTop() > 120){
+			$('.navbar-area').addClass("is-sticky");
+		}
+		else{
+			$('.navbar-area').removeClass("is-sticky");
+		}
+	});
+
+	// Mean Menu
+	jQuery('.mean-menu').meanmenu({
+		meanScreenWidth: "1199"
+	});
+
+	// Others Option For Responsive JS
+	$(".others-option-for-responsive .dot-menu").on("click", function(){
+		$(".others-option-for-responsive .container .container").toggleClass("active");
+	});
+
+	// Video Slides
+	$('.video-slides').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 1,
+			},
+			768: {
+				items: 2,
+			},
+			1200: {
+				items: 2,
+			}
+		}
+	});
+
+	// Popup Video
+	$('.popup-youtube').magnificPopup({
+		disableOn: 320,
+		type: 'iframe',
+		mainClass: 'mfp-fade',
+		removalDelay: 160,
+		preloader: false,
+		fixedContentPos: false
+	});
+
+	// Business News Slides
+	$('.business-news-slides').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 1,
+			},
+			768: {
+				items: 2,
+			},
+			1200: {
+				items: 2,
+			}
+		}
+	});
+
+	// Health News Slides
+	$('.health-news-slides').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 1,
+			},
+			768: {
+				items: 2,
+			},
+			1200: {
+				items: 2,
+			}
+		}
+	});
+
+	// Go to Top
+	$(function(){
+		// Scroll Event
+		$(window).on('scroll', function(){
+			var scrolled = $(window).scrollTop();
+			if (scrolled > 600) $('.go-top').addClass('active');
+			if (scrolled < 600) $('.go-top').removeClass('active');
+		});
+		// Click Event
+		$('.go-top').on('click', function() {
+			$("html, body").animate({ scrollTop: "0" },  500);
+		});
+	});
+
+	// Sports Slides
+	$('.sports-slider').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		items: 1,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 2,
+			},
+			768: {
+				items: 1,
+			},
+			1200: {
+				items: 1,
+			}
+		}
+	});
+
+	// Tech Slides
+	$('.tech-slider').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		items: 1,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 2,
+			},
+			768: {
+				items: 1,
+			},
+			1200: {
+				items: 1,
+			}
+		}
+	});
+
+	// Breaking News Slides
+	$('.breaking-news-slides').owlCarousel({
+		loop: true,
+		nav: false,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		animateOut:"slideOutDown",
+		animateIn:"flipInX",
+		items: 1,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+	});
+
+	// Main News Slides
+	$('.main-news-slides').owlCarousel({
+		loop: true,
+		nav: true,
+		dots: false,
+		autoplayHoverPause: true,
+		autoplay: true,
+		margin: 30,
+		navText: [
+			"<i class='bx bx-chevron-left'></i>",
+			"<i class='bx bx-chevron-right'></i>"
+		],
+		responsive: {
+			0: {
+				items: 1,
+			},
+			576: {
+				items: 1,
+			},
+			768: {
+				items: 2,
+			},
+			1200: {
+				items: 3,
+			}
+		}
+	});
+
+	// FAQ Accordion
+	$(function() {
+		$('.accordion').find('.accordion-title').on('click', function(){
+			// Adds Active Class
+			$(this).toggleClass('active');
+			// Expand or Collapse This Panel
+			$(this).next().slideToggle('fast');
+			// Hide The Other Panels
+			$('.accordion-content').not($(this).next()).slideUp('fast');
+			// Removes Active Class From Other Titles
+			$('.accordion-title').not($(this)).removeClass('active');
+		});
+	});
+
+	// Count Time
+	function makeTimer() {
+		var endTime = new Date("September 20, 2029 17:00:00 PDT");
+		var endTime = (Date.parse(endTime)) / 1000;
+		var now = new Date();
+		var now = (Date.parse(now) / 1000);
+		var timeLeft = endTime - now;
+		var days = Math.floor(timeLeft / 86400);
+		var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+		var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+		var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+		if (hours < "10") { hours = "0" + hours; }
+		if (minutes < "10") { minutes = "0" + minutes; }
+		if (seconds < "10") { seconds = "0" + seconds; }
+		$("#days").html(days + "<span>Days</span>");
+		$("#hours").html(hours + "<span>Hours</span>");
+		$("#minutes").html(minutes + "<span>Minutes</span>");
+		$("#seconds").html(seconds + "<span>Seconds</span>");
+	}
+	setInterval(function() { makeTimer(); }, 0);
+
+}(jQuery));
