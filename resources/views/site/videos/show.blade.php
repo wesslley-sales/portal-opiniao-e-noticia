@@ -4,7 +4,7 @@
 @section('description', $video->description);
 
 @section('content')
-    <div class="blog-section">
+    <div class="blog-section my-4">
         <div class="container">
             <div class="row gx-5 justify-content-center">
                 <div class="col-xxl-10 col-xl-10 col-lg-12 pb-50">

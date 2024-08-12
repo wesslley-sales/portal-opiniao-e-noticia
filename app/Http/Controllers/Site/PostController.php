@@ -29,8 +29,12 @@ class PostController
         return view('site.posts.index', compact('title', 'posts'));
     }
 
-    public function show(string $slug, Post $post): View
+    public function show(string $typeCategory, string $category, string $slug): View
     {
+        $idPost = preg_replace("/[^0-9\s]/", '', strrchr($slug, '-'));
+
+        $post = Post::findOrFail($idPost);
+
         views($post)->record();
 
         $cacheKey = 'post_' . $post->id;
@@ -86,15 +90,6 @@ class PostController
 
         return view('site.posts.index', compact('title', 'posts'));
 
-    }
-
-    public function migratedPost(string $type, string $slug): RedirectResponse
-    {
-        $post = Post::query()
-            ->where('migration_slug', $slug)
-            ->firstOrFail();
-
-        return to_route('site.posts.show', ['slug' => str()->slug($post->title), 'post' => $post->id]);
     }
 
     public function search(Request $request): View

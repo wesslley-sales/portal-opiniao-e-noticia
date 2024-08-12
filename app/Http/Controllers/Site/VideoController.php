@@ -10,7 +10,7 @@ class VideoController
 
     public function index(): View
     {
-        $title = 'Vídeos Pensar Piauí';
+        $title = 'Vídeos '. config('app.name');
 
         $videos = Video::query()
             ->with(['media'])

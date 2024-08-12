@@ -36,7 +36,9 @@
                     <select class="form-control {{ $errors->has('featured_position') ? 'is-invalid' : '' }}" name="featured_position" id="featured_position">
                         <option value disabled {{ old('featured_position', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                         @foreach(\App\Enums\FeaturedPositionPostEnum::getDescriptions() as $item)
-                            <option value="{{ $item['value'] }}" {{ old('featured_position', $post->featured_position ?? "") === (string) $item['value'] ? 'selected' : '' }}>
+                            <option value="{{ $item['value'] }}"
+                                    @selected(old('featured_position', $post->featured_position ?? "" === (string) $item['value']))
+                            >
                                 {{ $item['description'] }}
                             </option>
                         @endforeach

@@ -47,11 +47,12 @@
                         @foreach($videos as $key => $video)
                             <tr data-entry-id="{{ $video->id }}">
                                 <td>
-                                    @if($video->featured_image)
-                                        <a href="{{ $video->external_link }}" target="_blank" style="display: inline-block">
-                                            <img src="{{ $video->featured_image->getUrl('thumb') }}" loading="lazy">
-                                        </a>
-                                    @endif
+                                    <a href="{{ $video->external_link }}" target="_blank" style="display: inline-block">
+                                        <img src="https://img.youtube.com/vi/{{ $video->youtubeId }}/hqdefault.jpg"
+                                             loading="lazy"
+                                             style="width: 120px;"
+                                        />
+                                    </a>
                                 </td>
                                 <td>
                                     <p>{{ $video->title ?? '' }}</p>

@@ -1,4 +1,4 @@
-@if(request()->routeIs('site.posts.show'))
+@if(request()->routeIs('site.posts.show') && isset($post))
     <meta property="fb:app_id" content="1043052762572185"/>
     <meta property="og:url" content="{{ url()->current() }}" />
     <meta property="og:type" content="article" />

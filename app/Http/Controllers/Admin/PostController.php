@@ -8,7 +8,6 @@ use App\Http\Requests\MassDestroyPostRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\ContentCategory;
-use App\Models\ContentTag;
 use App\Models\Post;
 use App\Models\User;
 use Gate;

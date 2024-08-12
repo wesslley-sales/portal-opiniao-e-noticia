@@ -3,7 +3,7 @@
 @section('title', $title);
 
 @section('content')
-    <div class="blog-section">
+    <div class="blog-section my-4">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-12">
@@ -21,7 +21,7 @@
                                         <a href="{{ $video->url }}" title="{{ $video->title }}">
                                             <img src="{{ $video?->featured_image?->url }}"
                                                  alt="{{ $video->title }}"
-                                                 class="w-100"
+                                                 class="w-100 rounded"
                                                  loading="lazy"
                                             />
                                             <div class="play-icon-overlay d-flex justify-content-center align-items-center">
@@ -29,7 +29,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="news-info">
+                                    <div class="news-info mt-2">
                                         <h5 class="news-title">
                                             <a href="{{ $video->url }}" title="{{ $video->title }}">
                                                 {{ $video->title }}

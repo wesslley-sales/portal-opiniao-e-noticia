@@ -13,6 +13,10 @@
                     {{ $post->published_at->format('d/m/Y \à\s H:i') }}
                 </p>
             </div>
+
+            @if(!$loop->last)
+                <hr />
+            @endif
         @endforeach
     </div>
 </div>

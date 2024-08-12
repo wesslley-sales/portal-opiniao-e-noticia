@@ -1,6 +1,6 @@
 <div class="sidebar sticky-top">
-    <div class="ad">
-        @isset($banners['Quadrado 1'])
+    @isset($banners['Quadrado 1'])
+        <div class="ad">
             <div id="carouselExampleFb1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
                 <div class="carousel-inner">
                     @foreach($banners['Quadrado 1'] as $banner)
@@ -20,37 +20,13 @@
                     @endforeach
                 </div>
             </div>
-        @endisset
-    </div>
-
-    @isset($relatedPosts)
-        <div class="sidebar-widget trending-post-widget box">
-            <h2 class="widget-title">Veja também</h2>
-            <div class="tr-post-wrap">
-                @foreach($relatedPosts as $post)
-                    <div class="tr-post-item">
-                        <span class="tr-post-cat text-uppercase">{{ $post->category->name }}</span>
-                        <h3 class="tr-post-title">
-                            <a href="{{ $post->url }}" title="{{ $post->title }}">
-                                {{ $post->title }}
-                            </a>
-                        </h3>
-                        <p class="published-date">
-                            <i class="lar la-clock"></i>
-                            {{ $post->published_at->isoFormat('LL [às] HH:mm') }}
-                        </p>
-                    </div>
-                @endforeach
-            </div>
         </div>
     @endisset
 
     <x-last-videos />
 
-    @include('partials.site.boxStayConnected')
-
-    <div class="sidebar-widget ad-widget">
-        @isset($banners['Torre 1'])
+    @isset($banners['Torre 1'])
+        <div class="sidebar-widget ad-widget">
             <div id="carouselExampleFb1" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     @foreach($banners['Torre 1'] as $banner)
@@ -70,8 +46,8 @@
                     @endforeach
                 </div>
             </div>
-        @endisset
-    </div>
+        </div>
+    @endisset
 
     <x-posts-most-read />
 </div>

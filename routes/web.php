@@ -148,21 +148,20 @@ Route::group(['namespace' => 'Site', 'as' => 'site.'], function () {
         Route::get('pages/privacy-policy', 'privacyPolicy')->name('pages.privacyPolicy');
     });
 
-    Route::controller(\App\Http\Controllers\Site\PostController::class)->group(function () {
-        Route::get('/noticias', 'index')->name('posts.index');
-        Route::get('/noticias/{slug}/{post:id}', 'show')->name('posts.show');
-        Route::get('amp/noticias/{slug}/{post:id}', 'show')->name('posts.showAmp');
-        Route::get('/noticias/{categoryPost:slug}', 'category')->name('posts.category');
-        Route::get('/{type}/{slug}.html', 'migratedPost')->where('type', '(noticia|blog)')->name('posts.migratedPost');
-        Route::get('/blogs', 'blogs')->name('posts.blogs');
-        Route::get('/buscar/noticias', 'search')->name('posts.search');
-        Route::get('/feeds', 'feeds')->name('posts.feeds');
-        Route::get('/noticia/autor/{slug}', 'user')->name('posts.user');
-    });
-
     Route::controller(\App\Http\Controllers\Site\VideoController::class)->group(function () {
         Route::get('/videos', 'index')->name('videos.index');
         Route::get('/videos/{slug}/{video:id}', 'show')->name('videos.show');
+    });
+
+    Route::controller(\App\Http\Controllers\Site\PostController::class)->group(function () {
+        Route::get('/noticias', 'index')->name('posts.index');
+        Route::get('{typeCategory}/{category}/{slug}', 'show')->name('posts.show');
+        Route::get('amp/noticias/{slug}/{post:id}', 'show')->name('posts.showAmp');
+        Route::get('noticias/{categoryPost:slug}', 'category')->name('posts.category');
+        Route::get('blogs', 'blogs')->name('posts.blogs');
+        Route::get('buscar/noticias', 'search')->name('posts.search');
+        Route::get('feeds', 'feeds')->name('posts.feeds');
+        Route::get('noticia/autor/{slug}', 'user')->name('posts.user');
     });
 
     Route::controller(\App\Http\Controllers\Site\GalleryPhotoController::class)->group(function () {
@@ -177,53 +176,11 @@ Route::group(['prefix' => 'froala-upload', 'as' => 'froala.'], function () {
 });
 
 Route::get('/resize-image', function () {
-    $url     = request('url');
-    $width   = request('width', null);
-    $height  = request('height', null);
-    $quality = request('quality', 90);
+    $timthumbPath = public_path('timthumb.php');
 
-    if (!$url) {
-        return response()->json(['error' => 'URL not provided'], 400);
-    }
+    ob_start();
+    include $timthumbPath;
+    $content = ob_get_clean();
 
-    $cacheKey = md5($url . $width . $height . $quality);
-
-    if (Cache::has($cacheKey)) {
-        $cachedImage = Cache::get($cacheKey);
-        $tempPath = tempnam(sys_get_temp_dir(), 'cached_image') . '.jpg';
-        file_put_contents($tempPath, $cachedImage);
-        return response()->file($tempPath, [
-            'Content-Type' => 'image/jpeg',
-        ])->deleteFileAfterSend(true);
-    }
-
-    try {
-        $response = Http::get($url);
-
-        if ($response->failed()) {
-            return response()->json(['error' => 'Unable to download image'], 500);
-        }
-
-        $imageContent = $response->body();
-        $tempPath = tempnam(sys_get_temp_dir(), 'image');
-        file_put_contents($tempPath, $imageContent);
-
-        $image = Image::load($tempPath);
-
-        if ($width || $height) {
-            $image->fit(Fit::Crop, $width, $height);
-        }
-
-        $outputPath = tempnam(sys_get_temp_dir(), 'image_output') . '.jpg';
-        $image->quality($quality)->save($outputPath);
-
-        $cachedImageContent = file_get_contents($outputPath);
-        Cache::put($cacheKey, $cachedImageContent, now()->addDays(7)); // Expira em 7 dias
-
-        return response()->file($outputPath, [
-            'Content-Type' => 'image/jpeg',
-        ])->deleteFileAfterSend(true);
-    } catch (\Exception $e) {
-        return response()->json(['error' => 'Unable to process image: ' . $e->getMessage()], 500);
-    }
+    return new \Symfony\Component\HttpFoundation\BinaryFileResponse($content);
 });

@@ -22,7 +22,6 @@ use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
-use Spatie\SchemalessAttributes\SchemalessAttributesTrait;
 
 class Post extends Model implements HasMedia, Viewable
 {
@@ -127,8 +126,9 @@ class Post extends Model implements HasMedia, Viewable
     public function featuredImageUrl(): Attribute
     {
         return Attribute::make(
-//            get: fn () => $this->migration_image_url ??  $this->image?->photo?->url
-            get: fn () => !empty($this->migration_image_url) ? 'https://pensarpiaui.com' . $this->migration_image_url : $this->image?->photo?->url
+            get: fn () => !empty($this->migration_image_url)
+                ? str('https://portalopiniaoenoticia.com.br' . $this->migration_image_url)->replace('/migration', '')->__toString()
+                : $this->image?->photo?->url
         )->shouldCache();
     }
 
@@ -143,11 +143,11 @@ class Post extends Model implements HasMedia, Viewable
     {
         return Attribute::make(
             get: function () {
-                if (!empty($this->migration_slug) && !str($this->migration_slug)->startsWith('/')) {
-                    return '/noticia/' . $this->migration_slug. '.html';
-                }
-
-                return route('site.posts.show', ['slug' => str()->slug($this->title), 'post' => $this->id]);
+                return $this->migration_slug ?? route('site.posts.show', [
+                    'typeCategory' => 'noticias',
+                    'category'     => $this->category->slug,
+                    'slug'         => str()->slug($this->title). '-' . $this->id . '.html',
+                ]);
             }
         )->shouldCache();
     }

@@ -8,18 +8,22 @@
                         <a href="{{ $video->url }}" title="{{ $video->title }}">
                             <img src="{{ $video->featured_image->url }}"
                                  alt="{{ $video->title }}"
-                                 class="rounded"
+                                 class="rounded mb-2"
                                  loading="lazy"
                             />
                         </a>
                     </div>
                 @endif
 
-                <h3 class="tr-post-title">
+                <h5 class="tr-post-title">
                     <a href="{{ $video->url }}" title="{{ $video->title }}">
                         {{ $video->title }}
                     </a>
-                </h3>
+                </h5>
+
+                @if(!$loop->last)
+                    <hr/>
+                @endif
             </div>
         @endforeach
     </div>

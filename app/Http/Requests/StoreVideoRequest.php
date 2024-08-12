@@ -26,7 +26,7 @@ class StoreVideoRequest extends FormRequest
                 'required',
             ],
             'featured_image' => [
-                'required',
+                'nullable',
             ],
             'duration' => [
                 'string',

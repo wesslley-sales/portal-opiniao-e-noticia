@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Enums\FeaturedPositionPostEnum;
 use App\Models\Newsletter;
 use App\Models\Post;
+use App\Models\Video;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -18,32 +19,30 @@ class HomeController
         $featuredPosts = Cache::rememberForever('featuredPosts', function () {
             return Post::filterByFeaturedPosition(FeaturedPositionPostEnum::HEADLINE->name, 1)
                 ->union(Post::filterByFeaturedPosition(FeaturedPositionPostEnum::SLIDESHOW->name, 3))
-                ->union(Post::filterByFeaturedPosition(FeaturedPositionPostEnum::HIGHLIGHTED->name, 5))
-                ->with(['media', 'categories', 'image'])
+                ->with(['media', 'image'])
                 ->get()
                 ->groupBy('featured_position');
         });
 
         $postsCategoriesHome = Cache::rememberForever('postsCategoriesHome', function () {
-            return Post::filterByCategoryId(categoryId: 37, take: 6) // eleições 2024
-                ->union(Post::filterByCategoryId(categoryId: 1, take: 6)) // política
-                ->union(Post::filterByCategoryId(categoryId: 9, take: 3)) // entrevistas
+            return Post::filterByCategoryId(categoryId: 15, take: 3) // Eleições 2024
+                ->union(Post::filterByCategoryId(categoryId: 1, take: 6)) // Política
+                ->union(Post::filterByCategoryId(categoryId: 3, take: 3)) // Polícia
+                ->union(Post::filterByCategoryId(categoryId: 16, take: 2)) // Entrevistas
+                ->union(Post::filterByCategoryId(categoryId: 2, take: 3)) // Cidades
+                ->union(Post::filterByCategoryId(categoryId: 8, take: 3)) // Mundo PET
                 ->with(['media', 'categories', 'image'])
                 ->get()
                 ->groupBy(fn($post) => $post->categories->first()->id);
         });
 
-        $postsBloggers = Cache::rememberForever('postsBloggersHome', function () {
-             return Post::with(['media', 'categories.media', 'image'])
-                ->isFromBlog()
-                ->active()
-                ->validPeriod()
-                ->latest('published_at')
-                ->take(2)
+        $lastVideos = Cache::rememberForever('lastVideos', function () {
+            return Video::latest('id')
+                ->take(5)
                 ->get();
         });
 
-        return view('site.home.index', compact('featuredPosts', 'postsCategoriesHome', 'postsBloggers'));
+        return view('site.home.index', compact('featuredPosts', 'postsCategoriesHome', 'lastVideos'));
     }
 
     public function saveLead(Request $request): RedirectResponse

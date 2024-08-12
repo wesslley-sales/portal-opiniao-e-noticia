@@ -1,4 +1,4 @@
-@if(request()->routeIs('site.posts.show'))
+@if(request()->routeIs('site.posts.show') && isset($post))
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -29,10 +29,10 @@
           "url" : "{{ config('app.url') }}",
           "logo": "{{ url('images/site/logo.svg') }}",
           "sameAs" : [
-            "https://www.facebook.com/PensarPiaui/",
-            "https://www.instagram.com/pensarpiauioficial/",
-            "https://twitter.com/pensarpiaui/",
-            "https://www.youtube.com/channel/UCsUhBLPHeQ1oYysyn04zkeg"
+            "https://www.facebook.com/portalopiniaoenoticia",
+            "https://www.instagram.com/portalopiniaoenoticia/",
+            "https://twitter.com/wesslleysales",
+            "https://www.youtube.com/channel/UCZHSGRN2elI8deMqQ2JjzeA"
           ]
         }
     </script>

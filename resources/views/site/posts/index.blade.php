@@ -3,7 +3,7 @@
 @section('title', $title);
 
 @section('content')
-    <div class="blog-section">
+    <div class="blog-section my-4">
         <div class="container">
             <div class="row gx-5">
                 <div class="col-xxl-9 col-xl-8 col-lg-12">

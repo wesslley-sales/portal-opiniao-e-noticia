@@ -51,7 +51,7 @@ class VideoController extends Controller
                 ->addMediaFromUrl($featured_image)
                 ->usingFileName(Str::slug($request->title).'.'.pathinfo($featured_image, PATHINFO_EXTENSION))
                 ->toMediaCollection('featured_image');
-        } else {
+        } elseif (!empty($request->input('featured_image'))) {
             $video->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
         }
 
