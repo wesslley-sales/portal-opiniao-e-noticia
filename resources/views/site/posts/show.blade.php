@@ -100,7 +100,7 @@
                                         <div class="single-health-news">
                                             <div class="health-news-image">
                                                 <a href="{{ $relatedPost->url }}" title="{{ $relatedPost->title }}">
-                                                    <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=420&h=300&a=t"
+                                                    <img src="/resize-image?src={{ $relatedPost->featuredImageUrl }}&w=420&h=300&a=t"
                                                          alt="{{ $relatedPost->title }}"
                                                          loading="lazy"
                                                     />

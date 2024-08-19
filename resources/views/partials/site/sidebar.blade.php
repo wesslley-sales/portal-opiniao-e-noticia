@@ -25,6 +25,8 @@
 
     <x-last-videos />
 
+    <hr />
+
     @isset($banners['Torre 1'])
         <div class="sidebar-widget ad-widget">
             <div id="carouselExampleFb1" class="carousel slide" data-bs-ride="carousel">

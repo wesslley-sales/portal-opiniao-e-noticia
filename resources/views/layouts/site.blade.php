@@ -162,8 +162,8 @@
                             </ul>
                             <div class="others-options d-flex align-items-center">
                                 <div class="option-item">
-                                    <form class="search-box">
-                                        <input type="text" class="form-control" placeholder="faça uma busca" required />
+                                    <form class="search-box" action="{{ route('site.posts.search') }}">
+                                        <input type="text" name="term" class="form-control" placeholder="faça uma busca" required />
                                         <button type="submit"><i class='bx bx-search'></i></button>
                                     </form>
                                 </div>
