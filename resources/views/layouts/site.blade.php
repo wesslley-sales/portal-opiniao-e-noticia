@@ -197,6 +197,31 @@
             </div>
         </div>
 
+        @isset($banners['Full banner 1'])
+            <div class="container mt-4">
+                <div id="carouselExampleFb1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                    <div class="carousel-inner">
+                        @foreach($banners['Full banner 1'] as $banner)
+                            <div @class(['carousel-item', 'active' => $loop->first])>
+                                @if($banner->isFormatCode)
+                                    <div class="d-block ad text-center mt-3">
+                                        {!! $banner->code !!}
+                                    </div>
+                                @else
+                                    <a href="{{ $banner->link }}" title="{{ $banner->name }}" target="_blank" class="d-block ad text-center pt-30 pb-30">
+                                        <img src="{{ $banner->image->getUrl() }}"
+                                             loading="lazy"
+                                             alt="{{ $banner->name }}"
+                                        />
+                                    </a>
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endisset
+
         @yield('content')
 
         <section class="footer-area pt-100 pb-70">

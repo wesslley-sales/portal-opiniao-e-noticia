@@ -25,8 +25,7 @@ class HomeController
         });
 
         $postsCategoriesHome = Cache::rememberForever('postsCategoriesHome', function () {
-            return Post::filterByCategoryId(categoryId: 15, take: 3) // Eleições 2024
-                ->union(Post::filterByCategoryId(categoryId: 1, take: 6)) // Política
+            return Post::filterByCategoryId(categoryId: 1, take: 6) // Política
                 ->union(Post::filterByCategoryId(categoryId: 3, take: 3)) // Polícia
                 ->union(Post::filterByCategoryId(categoryId: 16, take: 2)) // Entrevistas
                 ->union(Post::filterByCategoryId(categoryId: 2, take: 3)) // Cidades
