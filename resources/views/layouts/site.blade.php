@@ -210,8 +210,8 @@
                                 @else
                                     <a href="{{ $banner->link }}" title="{{ $banner->name }}" target="_blank" class="d-block ad text-center pt-30 pb-30">
                                         <img src="{{ $banner->image->getUrl() }}"
-                                             loading="lazy"
                                              alt="{{ $banner->name }}"
+                                             loading="lazy"
                                         />
                                     </a>
                                 @endif

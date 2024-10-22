@@ -3,28 +3,28 @@
     "background_color": "#ffffff",
     "display": "fullscreen",
     "scope": "/",
-    "start_url": "https://pensarpiaui.com/?utm_source=homescreen",
-    "name": "Clube A",
-    "short_name": "Clube A",
-    "description": "No Pensar Piauí você fica por dentro de tudo sobre Política, Comunicação, Cultura, Diversidade, Economia, Educação e muito mais.",
+    "start_url": "https://portalopiniaoenoticia.com.br/?utm_source=homescreen",
+    "name": "Portal Opinião e Notícia",
+    "short_name": "Portal Opinião e Notícia",
+    "description": "No Portal Opinião e Notícia você lê fatos, não fakes!",
     "icons": [
         {
-            "src": "/images/favicon.png",
+            "src": "/images/site/favicon.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/images/favicon.png",
+            "src": "/images/site/favicon.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "/images/favicon.png",
+            "src": "/images/site/favicon.png",
             "sizes": "384x384",
             "type": "image/png"
         },
         {
-            "src": "/images/favicon.png",
+            "src": "/images/site/favicon.png",
             "sizes": "512x512",
             "type": "image/png"
         }
