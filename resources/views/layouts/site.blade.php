@@ -22,15 +22,15 @@
         <link rel="apple-touch-icon" href="{{ asset('images/site/favicon.png') }}" />
         <meta name="msapplication-TileImage" content="{{ asset('images/site/favicon.png') }}" />
 
-        <link rel="stylesheet" href="{{ asset('css/site/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/animate.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/meanmenu.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/boxicons.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/owl.theme.default.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/magnific-popup.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/site/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/bootstrap.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/animate.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/meanmenu.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/boxicons.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/owl.carousel.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/owl.theme.default.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/magnific-popup.min.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/style.css') }}?v={{ date('dmY') }}">
+        <link rel="stylesheet" href="{{ asset('css/site/responsive.css') }}?v={{ date('dmY') }}">
 
         <style>
             .article-footer .article-share .social li a {
@@ -301,13 +301,13 @@
             <i class='bx bx-up-arrow-alt'></i>
         </div>
 
-        <script src="{{ asset('js/site/jquery.min.js') }}"></script>
-        <script src="{{ asset('js/site/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/site/jquery.meanmenu.js') }}"></script>
-        <script src="{{ asset('js/site/owl.carousel.min.js') }}"></script>
-        <script src="{{ asset('js/site/jquery.magnific-popup.min.js') }}"></script>
-        <script src="{{ asset('js/site/wow.min.js') }}"></script>
-        <script src="{{ asset('js/site/main.js') }}"></script>
+        <script src="{{ asset('js/site/jquery.min.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/bootstrap.bundle.min.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/jquery.meanmenu.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/owl.carousel.min.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/jquery.magnific-popup.min.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/wow.min.js') }}?v={{ date('dmY') }}"></script>
+        <script src="{{ asset('js/site/main.js') }}?v={{ date('dmY') }}"></script>
 
         @yield('scripts')
     </body>
