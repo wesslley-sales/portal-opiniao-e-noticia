@@ -134,6 +134,7 @@ if(! isset($ALLOWED_SITES)){
 	$ALLOWED_SITES = [
 		'img.youtube.com',
         'portalopiniaoenoticia.com.br',
+        'portal-on.s3.us-east-2.amazonaws.com',
 	];
 }
 
@@ -291,6 +292,7 @@ class timthumb {
                 $ALLOWED_SITES = [
                     'img.youtube.com',
                     'portalopiniaoenoticia.com.br',
+                    'portal-on.s3.us-east-2.amazonaws.com',
                 ];
 				foreach($ALLOWED_SITES as $site){
 					if ((strtolower(substr($this->url['host'],-strlen($site)-1)) === strtolower(".$site")) || (strtolower($this->url['host'])===strtolower($site))) {
