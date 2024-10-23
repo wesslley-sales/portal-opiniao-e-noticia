@@ -263,4 +263,72 @@
             </div>
         </div>
     </section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-12">
+                <div class="title-section mb-3">
+                    <h3>
+                        <a href="/noticias" title="Últimas Vídeos" style="border-bottom: 2px solid #09abe7;">
+                            NOTÍCIAS MAIS LIDAS
+                        </a>
+                    </h3>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="highlights-content-2-wrapper">
+                        @foreach($lastPosts->take(5) as $post)
+                            <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
+                                <div class="thumb transtion_zoom">
+                                    <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                        <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=180&h=145&a=t" alt="{{ $post->title }}" class="rounded" loading="lazy">
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title" style="font-size: 18px;">
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            {{ $post->title }}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+                <div class="title-section mb-3">
+                    <h3>
+                        <a href="/videos" title="Últimas Vídeos" style="border-bottom: 2px solid #09abe7;">
+                            VÍDEOS MAIS VISTOS
+                        </a>
+                    </h3>
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12">
+                    <div class="highlights-content-2-wrapper">
+                        @foreach($videosMostViewed->take(5) as $video)
+                            <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
+                                <div class="thumb transtion_zoom">
+                                    <a href="{{ $video->url }}" title="{{ $video->title }}">
+                                        <img src="/resize-image?src=https://img.youtube.com/vi/{{ $video->youtubeId }}/hqdefault.jpg&w=180&h=145&a=t"
+                                             alt="{{ $video->title }}"
+                                             class="rounded"
+                                             loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title" style="font-size: 18px;">
+                                        <a href="{{ $video->url }}" title="{{ $video->title }}">
+                                            {{ $video->title }}
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

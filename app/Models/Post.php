@@ -127,7 +127,7 @@ class Post extends Model implements HasMedia, Viewable
     {
         return Attribute::make(
             get: fn () => !empty($this->migration_image_url)
-                ? str('https://portalopiniaoenoticia.com.br' . $this->migration_image_url)->replace('/migration', '')->__toString()
+                ? str('https://portalopiniaoenoticia.com.br' . $this->migration_image_url)->__toString()
                 : $this->image?->photo?->url
         )->shouldCache();
     }
