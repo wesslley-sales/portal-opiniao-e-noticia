@@ -31,6 +31,9 @@ class HomeController
 
         $postsCategoriesHome = Cache::rememberForever('postsCategoriesHome', function () {
             return Post::filterByCategoryId(categoryId: 1, take: 6) // Política
+                ->union(Post::filterByCategoryId(categoryId: 2, take: 5)) // Cidades
+                ->union(Post::filterByCategoryId(categoryId: 9, take: 5)) // Fala comunidade
+                ->union(Post::filterByCategoryId(categoryId: 6, take: 5)) // A notícia é sua
                 ->union(Post::filterByCategoryId(categoryId: 3, take: 3)) // Polícia
                 ->union(Post::filterByCategoryId(categoryId: 16, take: 2)) // Entrevistas
                 ->union(Post::filterByCategoryId(categoryId: 2, take: 3)) // Cidades

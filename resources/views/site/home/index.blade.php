@@ -45,37 +45,95 @@
 
     <section class="default-news-area">
         <div class="container">
-            <div class="video-news">
-                <div class="section-title">
-                    <h2>
-                        <a href="{{ route('site.videos.index') }}" title="Vídeos">
-                            Vídeos
-                        </a>
-                    </h2>
-                </div>
-                <div class="video-slides owl-carousel owl-theme">
-                    @foreach($lastVideos as $video)
-                        <div class="video-item">
-                            <div class="video-news-image">
-                                <a href="{{ $video->url }}" title="{{ $video->title }}">
-                                    <img src="https://img.youtube.com/vi/{{ $video->youtubeId }}/hqdefault.jpg"
-                                         alt="{{ $video->title }}"
-                                         loading="lazy"
-                                    />
-                                </a>
-                                <a href="{{ $video->url }}" title="{{ $video->title }}">
-                                    <i class='bx bx-play-circle'></i>
-                                </a>
-                            </div>
-                            <div class="video-news-content">
-                                <h3>
-                                    <a href="{{ $video->url }}" title="{{ $video->title }}">
-                                        {{ $video->title }}
-                                    </a>
-                                </h3>
-                            </div>
+            <div class="row mb-3">
+                <div class="col-lg-4 col-12">
+                    <div class="title-section mb-3">
+                        <h3>
+                            <a href="{{ route('site.posts.category', ['categoryPost' => 'municipios']) }}" title="Notícias Municípios" style="border-bottom: 2px solid #09abe7;">
+                                Municípios
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="highlights-content-2-wrapper">
+                            @foreach($postsCategoriesHome[2] ?? [] as $post)
+                                <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
+                                    <div class="thumb transtion_zoom">
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=180&h=145&a=t" alt="{{ $post->title }}" class="rounded" loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="title" style="font-size: 18px;">
+                                            <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
-                    @endforeach
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12">
+                    <div class="title-section mb-3">
+                        <h3>
+                            <a href="{{ route('site.posts.category', ['categoryPost' => 'fala-comunidade']) }}" title="Notícias Municípios" style="border-bottom: 2px solid #09abe7;">
+                                Fala Comunidade
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="highlights-content-2-wrapper">
+                            @foreach($postsCategoriesHome[9] ?? [] as $post)
+                                <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
+                                    <div class="thumb transtion_zoom">
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=180&h=145&a=t" alt="{{ $post->title }}" class="rounded" loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="title" style="font-size: 18px;">
+                                            <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12">
+                    <div class="title-section mb-3">
+                        <h3>
+                            <a href="{{ route('site.posts.category', ['categoryPost' => 'a-noticia-e-sua']) }}" title="Notícias Municípios" style="border-bottom: 2px solid #09abe7;">
+                                A Notícia é Sua
+                            </a>
+                        </h3>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 col-md-12">
+                        <div class="highlights-content-2-wrapper">
+                            @foreach($postsCategoriesHome[6] ?? [] as $post)
+                                <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
+                                    <div class="thumb transtion_zoom">
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=180&h=145&a=t" alt="{{ $post->title }}" class="rounded" loading="lazy">
+                                        </a>
+                                    </div>
+                                    <div class="content">
+                                        <h3 class="title" style="font-size: 18px;">
+                                            <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                                {{ $post->title }}
+                                            </a>
+                                        </h3>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -153,43 +211,6 @@
                 </div>
             </div>
 
-            <div class="culture-news">
-                <div class="section-title">
-                    <h2>
-                        <a href="{{ route('site.posts.category', ['categoryPost' => 'entretenimento']) }}" title="Notícias Entretenimento">
-                            Entretenimento
-                        </a>
-                    </h2>
-                </div>
-                <div class="row">
-                    @foreach($postsCategoriesHome[16] ?? [] as $post)
-                        <div class="col-lg-6">
-                            <div class="single-culture-news">
-                                <div class="culture-news-image">
-                                    <a href="{{ $post->url }}" title="{{ $post->title }}">
-                                        <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=640&h=420&a=t"
-                                             alt="{{ $post->title }}"
-                                             loading="lazy"
-                                        />
-                                    </a>
-                                </div>
-                                <div class="culture-news-content">
-                                    <h3>
-                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
-                                            {{ $post->title }}
-                                        </a>
-                                    </h3>
-                                    <p>
-                                        <i class="bx bx-time"></i>
-                                        {{ $post->created_at->format('d/m/Y \à\s H\hi') }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
             <div class="tech-news">
                 <div class="section-title">
                     <h2>
@@ -228,7 +249,7 @@
             <div class="health-news">
                 <div class="section-title">
                     <h2>
-                        <a href="{{ route('site.posts.category', ['categoryPost' => 'mundo-bet']) }}" title="Notícias Mundo PET">
+                        <a href="{{ route('site.posts.category', ['categoryPost' => 'mundo-pet']) }}" title="Notícias Mundo PET">
                             Mundo PET
                         </a>
                     </h2>
@@ -330,5 +351,41 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container">
+        <div class="video-news">
+        <div class="section-title">
+            <h2>
+                <a href="{{ route('site.videos.index') }}" title="Vídeos">
+                    Vídeos
+                </a>
+            </h2>
+        </div>
+        <div class="video-slides owl-carousel owl-theme">
+            @foreach($lastVideos as $video)
+                <div class="video-item">
+                    <div class="video-news-image">
+                        <a href="{{ $video->url }}" title="{{ $video->title }}">
+                            <img src="https://img.youtube.com/vi/{{ $video->youtubeId }}/hqdefault.jpg"
+                                 alt="{{ $video->title }}"
+                                 loading="lazy"
+                            />
+                        </a>
+                        <a href="{{ $video->url }}" title="{{ $video->title }}">
+                            <i class='bx bx-play-circle'></i>
+                        </a>
+                    </div>
+                    <div class="video-news-content">
+                        <h3>
+                            <a href="{{ $video->url }}" title="{{ $video->title }}">
+                                {{ $video->title }}
+                            </a>
+                        </h3>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
     </div>
 @endsection

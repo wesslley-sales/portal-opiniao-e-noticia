@@ -45,6 +45,72 @@
             @media only screen and (max-width: 450px) {
 
             }
+
+            .ticker-wrapper-h{
+                display: flex;
+                position: relative;
+                overflow: hidden;
+                border: 1px solid #09abe7;
+                margin-top: 20px;
+            }
+
+            .ticker-wrapper-h .heading{
+                background-color: #09abe7;
+                color: #fff;
+                padding: 5px 10px;
+                flex: 0 0 auto;
+                z-index: 1000;
+            }
+            .ticker-wrapper-h .heading:after{
+                content: "";
+                position: absolute;
+                top: 0;
+                border-left: 20px solid #09abe7;
+                border-top: 17px solid transparent;
+                border-bottom: 15px solid transparent;
+            }
+
+            .news-ticker-h {
+                display: flex;
+                margin:0;
+                padding: 0;
+                padding-left: 90%;
+                z-index: 999;
+
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-name: tic-h;
+                animation-duration: 90s;
+
+            }
+            .news-ticker-h:hover {
+                animation-play-state: paused;
+            }
+
+            .news-ticker-h li{
+                display: flex;
+                width: 100%;
+                align-items: center;
+                white-space: nowrap;
+                padding-left: 20px;
+            }
+
+            .news-ticker-h li a{
+                color: #212529;
+                font-weight: bold;
+            }
+
+            @keyframes tic-h {
+                0% {
+                    -webkit-transform: translate3d(0, 0, 0);
+                    transform: translate3d(0, 0, 0);
+                    visibility: visible;
+                }
+                100% {
+                    -webkit-transform: translate3d(-100%, 0, 0);
+                    transform: translate3d(-100%, 0, 0);
+                }
+            }
         </style>
 
         @yield('styles')
@@ -112,6 +178,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="main-navbar">
                 <div class="container">
                     <nav class="navbar navbar-expand-md navbar-light">
@@ -172,6 +239,7 @@
                     </nav>
                 </div>
             </div>
+
             <div class="others-option-for-responsive">
                 <div class="container">
                     <div class="dot-menu">
@@ -194,6 +262,24 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="ticker-wrapper-h">
+                <div class="heading fw-bold">
+                    ÚLTIMAS NOTÍCIAS
+                </div>
+
+                <ul class="news-ticker-h">
+                    @foreach($lastPosts as $post)
+                        <li>
+                            <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                {{ $post->title }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
             </div>
         </div>
 

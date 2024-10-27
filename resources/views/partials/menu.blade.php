@@ -1,7 +1,7 @@
 <div id="sidebar" class="c-sidebar c-sidebar-fixed c-sidebar-lg-show">
 
     <div class="c-sidebar-brand d-md-down-none">
-        <a class="c-sidebar-brand-full h4"
+        <a class="c-sidebar-brand-full h4 text-center"
            title="Acessar o site"
            href="{{ route('site.home.index') }}"
            target="_blank"
