@@ -268,13 +268,13 @@
                                 </div>
                                 <div class="health-news-content">
                                     <h3>
-                                        <a href="#">
-                                            Governo do Estado entrega Hospital Veterinário de Teresina em julho
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            {{ $post->title }}
                                         </a>
                                     </h3>
                                     <p>
                                         <i class="bx bx-time"></i>
-                                        30/07/2024 às 16h
+                                        {{ $post->created_at->format('d/m/Y \à\s H\hi') }}
                                     </p>
                                 </div>
                             </div>
