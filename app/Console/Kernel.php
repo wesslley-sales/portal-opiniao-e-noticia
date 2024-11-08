@@ -2,17 +2,19 @@
 
 namespace App\Console;
 
+use App\Http\Controllers\Crawler\Concursos\ConcursoNewsController;
+use App\Http\Controllers\Crawler\Concursos\FolhaDirigidaController;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
-    /**
-     * Define the application's command schedule.
-     */
+
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->call(new ConcursoNewsController())->hourly()->between('7:00', '22:00');
+
+        $schedule->call(new FolhaDirigidaController())->hourly()->between('7:00', '22:00');
     }
 
     /**

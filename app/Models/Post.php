@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\FeaturedPositionPostEnum;
 use App\Jobs\InvalidatePostCacheJob;
+use App\Jobs\SendPushNotificationJob;
 use App\Traits\Auditable;
 use App\Traits\HasSchemalessAttributes;
 use App\Traits\HasScopeActive;
@@ -80,6 +81,15 @@ class Post extends Model implements HasMedia, Viewable
             if ($post->published_at && $post->published_at->isFuture()) {
                 InvalidatePostCacheJob::dispatch($post->id)
                     ->delay($post->published_at);
+            }
+        });
+
+        static::created(function($post) {
+            if (!$post->getValueSchemalessAttributes('crawler') && $post->isActive) {
+                SendPushNotificationJob::dispatch(
+                    title: $post->title,
+                    url: $post->url
+                )->delay($post->published_at);
             }
         });
     }
