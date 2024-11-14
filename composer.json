@@ -16,6 +16,7 @@
         "magyarandras/amp-converter": "^1.0",
         "nuovo/spreadsheet-reader": "^0.5.11",
         "predis/predis": "^2.2",
+        "rap2hpoutre/laravel-log-viewer": "^2.4",
         "spatie/laravel-medialibrary": "^11",
         "spatie/laravel-query-builder": "^5.8",
         "spatie/laravel-schemaless-attributes": "^2.5",
