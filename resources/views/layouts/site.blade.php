@@ -272,7 +272,7 @@
                 </div>
 
                 <ul class="news-ticker-h">
-                    @foreach($lastPosts as $post)
+                    @foreach($lastPosts ?? [] as $post)
                         <li>
                             <a href="{{ $post->url }}" title="{{ $post->title }}">
                                 {{ $post->title }}
