@@ -133,7 +133,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ $settings['site.link_whatsapp'] ?? "" }}" title="WhatsApp {{ $settings['site.link_whatsapp'] }}" class="pinterest" target="_blank">
+                                <a href="{{ $settings['site.link_whatsapp'] ?? "" }}" title="WhatsApp {{ config('app.name') }}" class="pinterest" target="_blank">
                                     <i class='bx bxl-whatsapp'></i>
                                 </a>
                             </li>
@@ -327,27 +327,27 @@
                             <p>Os artigos publicados são de inteira responsabilidade de seus autores. As opiniões neles emitidas não exprimem, necessariamente, o ponto de vista do <strong>Opinião e Notícia - ON</strong>.</p>
                             <ul class="social">
                                 <li>
-                                    <a href="{{ $settings['site.link_facebook'] }}" title="Facebook {{ config('app.name') }}" class="facebook" target="_blank">
+                                    <a href="{{ $settings['site.link_facebook'] ?? "" }}" title="Facebook {{ config('app.name') }}" class="facebook" target="_blank">
                                         <i class='bx bxl-facebook'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ $settings['site.link_instagram'] }}" title="Instagram {{ config('app.name') }}" class="pinterest" target="_blank">
+                                    <a href="{{ $settings['site.link_instagram'] ?? "" }}" title="Instagram {{ config('app.name') }}" class="pinterest" target="_blank">
                                         <i class='bx bxl-instagram'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ $settings['site.link_whatsapp'] }}" title="WhatsApp {{ $settings['site.link_whatsapp'] }}" class="pinterest" target="_blank">
+                                    <a href="{{ $settings['site.link_whatsapp'] ?? "" }}" title="WhatsApp {{ config('app.name') }}" class="pinterest" target="_blank">
                                         <i class='bx bxl-whatsapp'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ $settings['site.link_twitter'] }}" title="Twitter {{ config('app.name') }}" class="twitter" target="_blank">
+                                    <a href="{{ $settings['site.link_twitter'] ?? "" }}" title="Twitter {{ config('app.name') }}" class="twitter" target="_blank">
                                         <i class='bx bxl-twitter'></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ $settings['site.link_youtube'] }}" title="YouTube {{ config('app.name') }}" class="linkedin" target="_blank">
+                                    <a href="{{ $settings['site.link_youtube'] ?? "" }}" title="YouTube {{ config('app.name') }}" class="linkedin" target="_blank">
                                         <i class='bx bxl-youtube'></i>
                                     </a>
                                 </li>
