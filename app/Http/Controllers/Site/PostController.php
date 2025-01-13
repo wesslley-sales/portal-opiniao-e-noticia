@@ -23,7 +23,7 @@ class PostController
             ->validPeriod()
             ->active()
             ->latest('published_at')
-            ->simplePaginate()
+            ->simplePaginate(50)
             ->withQueryString();
 
         return view('site.posts.index', compact('title', 'posts'));

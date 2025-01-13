@@ -297,7 +297,7 @@
                 </div>
                 <div class="col-xl-12 col-lg-12 col-md-12">
                     <div class="highlights-content-2-wrapper">
-                        @foreach($lastPosts->take(5) as $post)
+                        @foreach($postsMostRead->take(5) as $post)
                             <div class="highlights-content-2 mb-sm-2 d-grid align-items-center" style="gap: 20px; grid-template-columns: 140px 1fr;">
                                 <div class="thumb transtion_zoom">
                                     <a href="{{ $post->url }}" title="{{ $post->title }}">

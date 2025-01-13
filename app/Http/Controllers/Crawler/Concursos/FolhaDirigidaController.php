@@ -76,6 +76,7 @@ class FolhaDirigidaController extends Controller
                 'content'      => $item['title'],
                 'published_at' => now(),
                 'status'       => StatusEnum::INACTIVE->name,
+                'migration_image_url' => public_path('images/site/news/imagem-concursos-publicos.jpg'),
             ]);
 
             $post->categories()->sync([self::CATEGORY_CONCURSO]);

@@ -46,6 +46,7 @@ class ConcursoNewsController extends Controller
             $items[$i]['subtitle']              = (string) $item->description;
             $items[$i]['content']               = (string) $item->children($namespaces['content'])->encoded;
             $items[$i]['published_at']          = $pubDate->format('Y-m-d H:i:s');
+            $items[$i]['migration_image_url']   = public_path('images/site/news/imagem-concursos-publicos.jpg');
             $items[$i]['status']                = StatusEnum::INACTIVE->value;
             $items[$i]['attributes']['link']    = (string) $item->guid;
             $items[$i]['attributes']['crawler'] = true;

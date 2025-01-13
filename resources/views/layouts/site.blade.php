@@ -100,6 +100,14 @@
                 font-weight: bold;
             }
 
+            .navbar-area.is-sticky {
+                z-index: 9999;
+            }
+
+            .others-option-for-responsive .container .container.active {
+                z-index: 9999;
+            }
+
             @keyframes tic-h {
                 0% {
                     -webkit-transform: translate3d(0, 0, 0);
@@ -109,6 +117,25 @@
                 100% {
                     -webkit-transform: translate3d(-100%, 0, 0);
                     transform: translate3d(-100%, 0, 0);
+                }
+            }
+
+            @media only screen and (max-width: 450px) {
+                .ticker-wrapper-h .heading {
+                    font-size: 70%;
+                    padding: 5px;
+                }
+
+                .others-option-for-responsive .dot-menu {
+                    right: 7px;
+                }
+
+                .mean-container .mean-nav {
+                    margin-top: 160px;
+                }
+
+                .main-responsive-nav .main-responsive-menu.mean-container .navbar-nav {
+                    height: 320px;
                 }
             }
         </style>
