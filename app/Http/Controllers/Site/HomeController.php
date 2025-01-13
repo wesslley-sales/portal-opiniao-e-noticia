@@ -38,6 +38,7 @@ class HomeController
                 ->union(Post::filterByCategoryId(categoryId: 16, take: 2)) // Entrevistas
                 ->union(Post::filterByCategoryId(categoryId: 2, take: 3)) // Cidades
                 ->union(Post::filterByCategoryId(categoryId: 8, take: 3)) // Mundo PET
+                ->union(Post::filterByCategoryId(categoryId: 18, take: 3)) // Concursos
                 ->with(['media', 'categories', 'image'])
                 ->get()
                 ->groupBy(fn($post) => $post->categories->first()->id);

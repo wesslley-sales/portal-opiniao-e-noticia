@@ -246,6 +246,41 @@
                 </div>
             </div>
 
+            <div class="tech-news">
+                <div class="section-title">
+                    <h2>
+                        <a href="{{ route('site.posts.category', ['categoryPost' => 'concursos']) }}" title="Notícias Concursos">
+                            Concursos
+                        </a>
+                    </h2>
+                </div>
+                <div class="row">
+                    @foreach($postsCategoriesHome[18] ?? [] as $post)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-tech-news-box">
+                                <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                    <img src="/resize-image?src={{ $post->featuredImageUrl }}&w=420&h=300&a=t"
+                                         alt="{{ $post->title }}"
+                                         loading="lazy"
+                                    />
+                                </a>
+                                <div class="tech-news-content">
+                                    <h3>
+                                        <a href="{{ $post->url }}" title="{{ $post->title }}">
+                                            {{ $post->title }}
+                                        </a>
+                                    </h3>
+                                    <p>
+                                        <i class="bx bx-time"></i>
+                                        {{ $post->created_at->format('d/m/Y \à\s H\hi') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
             <div class="health-news">
                 <div class="section-title">
                     <h2>
