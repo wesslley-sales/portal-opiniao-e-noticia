@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <section class="main-news-slider-area pt-4">
+    <section class="main-news-slider-area pt-4 pb-1">
         <div class="container-fluid">
             <div class="main-news-slides owl-carousel owl-theme">
                 @foreach($featuredPosts['Destaque Slideshow'] as $post)
@@ -42,6 +42,31 @@
             </div>
         </div>
     </section>
+
+    @isset($banners['Full banner 2'])
+        <div class="container py-4">
+            <div id="carouselExampleFb1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="10000">
+                <div class="carousel-inner">
+                    @foreach($banners['Full banner 2'] as $banner)
+                        <div @class(['carousel-item', 'active' => $loop->first])>
+                            @if($banner->isFormatCode)
+                                <div class="d-block ad text-center mt-3">
+                                    {!! $banner->code !!}
+                                </div>
+                            @else
+                                <a href="{{ $banner->link }}" title="{{ $banner->name }}" target="_blank" class="d-block ad text-center pt-30 pb-30">
+                                    <img src="{{ $banner->image->getUrl() }}"
+                                         alt="{{ $banner->name }}"
+                                         loading="lazy"
+                                    />
+                                </a>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endisset
 
     <section class="default-news-area">
         <div class="container">
