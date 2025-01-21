@@ -61,6 +61,7 @@ class Post extends Model implements HasMedia, Viewable
         'source',
         'published_at',
         'status',
+        'migration_image_url',
     ];
 
     protected static function booted(): void
