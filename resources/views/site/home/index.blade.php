@@ -162,6 +162,19 @@
                 </div>
             </div>
 
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6507859803003463"
+                    crossorigin="anonymous"></script>
+            <!-- fullbanner ads -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6507859803003463"
+                 data-ad-slot="4284682795"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
             <div class="politics-news">
                 <div class="section-title">
                     <h2>
