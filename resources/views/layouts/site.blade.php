@@ -5,6 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
+        <!-- Cole o codigo dentro da tag head -->
+        <link rel="preconnect" href="https://tagmanager.alright.network">
+        <link rel="preconnect" href="https://securepubads.g.doubleclick.net">
+        <script async src='https://tagmanager.alright.network/manager/js/container_JlOxNjae.js'></script>
+        <!-- Alright Tag Manager --> 
+
         @include('partials.dns-prefech-and-preconnect')
         @include('partials.google-analytics')
         @include('partials.pwa')
